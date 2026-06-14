@@ -61,6 +61,14 @@
     border-radius:20px;padding:22px 24px;margin-top:14px}
   .action .tag{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
   .action p{font-size:1.12rem;color:var(--ink);font-weight:600;margin-top:6px;max-width:none}
+  .eg{background:var(--cream2);border:1px solid var(--line);border-left:4px solid var(--gold);
+    border-radius:12px;padding:13px 16px;margin-top:14px}
+  .eg .tag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:5px}
+  .eg p{font-size:.98rem;max-width:none;margin:0;color:var(--ink-soft)}
+  .eg .mono{font-family:var(--mono)}
+  .eg code,.card code{font-family:var(--mono);background:rgba(217,144,0,.12);padding:1px 5px;border-radius:5px;font-size:.9em;color:var(--ink)}
+  .card .ex{display:block;margin-top:8px;font-family:var(--mono);font-size:.82rem;color:var(--steel);
+    background:var(--cream2);border-radius:8px;padding:6px 9px;white-space:pre-wrap;line-height:1.5}
   .cover{background:radial-gradient(1200px 500px at 20% -10%,rgba(232,89,12,.16),transparent 60%),
       radial-gradient(900px 500px at 100% 120%,rgba(217,144,0,.12),transparent 55%),var(--slide)}
   .brandbar{display:flex;align-items:center;gap:10px;margin-bottom:auto}
@@ -100,6 +108,10 @@
     <h2>You know the syntax. You're stuck anyway.</h2>
     <p>Most beginners can read every line of Python and still stare at a blank screen when handed a new problem. That's normal — and it's not a syntax gap.</p>
     <p style="margin-top:14px">It's a <strong>logic gap</strong>: the leap from <em>"what is being asked"</em> to <em>"what steps solve it."</em> Today is a repeatable method to cross that gap every time.</p>
+    <div class="eg">
+      <span class="tag">Example</span>
+      <p>Asked to "print a triangle of stars," you already know <code>print()</code> and <code>for</code> — but you freeze on <em>how many stars each row needs</em>. That missing step is the logic gap, not the syntax.</p>
+    </div>
   </section>
 
   <!-- 3 WHAT IS LOGIC BUILDING -->
@@ -107,8 +119,11 @@
     <div class="kicker">Definition</div>
     <h2>Logic building = designing the steps</h2>
     <div class="grid g2">
-      <div class="card"><h3>🧠 The thinking job</h3><p>Break a problem into a precise, ordered sequence of steps — clear enough that a machine (with zero common sense) can follow it.</p></div>
-      <div class="card"><h3>⌨️ The typing job</h3><p>Translate those steps into Python. This is the <em>easy</em> part once the steps exist.</p></div>
+      <div class="card"><h3>🧠 The thinking job</h3><p>Break a problem into a precise, ordered sequence of steps — clear enough that a machine (with zero common sense) can follow it.<span class="ex">Task: greet 5 friends.
+Steps: repeat 5 times,
+each time print a name.</span></p></div>
+      <div class="card"><h3>⌨️ The typing job</h3><p>Translate those steps into Python. This is the <em>easy</em> part once the steps exist.<span class="ex">for name in friends:
+    print("Hi", name)</span></p></div>
     </div>
     <p style="margin-top:16px" class="muted">A computer does exactly what you say, in order, literally. Logic building is writing instructions for the world's fastest, most literal-minded helper.</p>
   </section>
@@ -124,6 +139,10 @@
       <li class="ok"><strong>4 · Code</strong> — translate each line of the plan into Python.</li>
       <li><strong>5 · Test</strong> — run normal, boundary, and weird inputs; fix and repeat.</li>
     </ul>
+    <div class="eg">
+      <span class="tag">Example — "sum 1 to N" through all 5 steps</span>
+      <p><span class="mono">① in: N, out: total &nbsp; ② by hand: 1+2+3 = 6 &nbsp; ③ total=0, loop &amp; add &nbsp; ④ <code>for n in range(1,N+1): total += n</code> &nbsp; ⑤ test N=3→6, N=1→1, N=0→0</span></p>
+    </div>
     <p style="margin-top:12px" class="muted">If you jump straight to step 4, you're guessing. The plan is what you're really paid for.</p>
   </section>
 
@@ -137,7 +156,11 @@
       <div class="card"><h3>📤 Output</h3><p>What exactly must I produce or return? One value? Many?</p></div>
       <div class="card"><h3>📏 Rules</h3><p>What are the conditions and the tricky edges (empty, zero, negative)?</p></div>
     </div>
-    <p style="margin-top:16px"><strong>Restate it in one sentence in your own words.</strong> If you can't, you don't understand it yet — and no code will fix that.</p>
+    <div class="eg">
+      <span class="tag">Example — "10% off on bills of ₹500 or more"</span>
+      <p><strong>Input:</strong> the bill amount (a number). &nbsp; <strong>Output:</strong> the amount to pay. &nbsp; <strong>Rule:</strong> discount only when bill ≥ 500; <em>edge case</em> = exactly 500.</p>
+    </div>
+    <p style="margin-top:12px" class="muted"><strong>Then restate it in one sentence of your own.</strong> Can't? You don't understand it yet — no code will fix that.</p>
   </section>
 
   <!-- 6 STEP 2 -->
@@ -149,7 +172,11 @@
       <span class="tag" style="color:var(--steel)">The magic question</span>
       <p>"What did my brain just do, step by step, to get that answer?"</p>
     </div>
-    <p style="margin-top:16px">Your hand-solution <em>is</em> the algorithm — you just have to slow down and notice the steps you did automatically. Do a second example if the first felt like a fluke.</p>
+    <div class="eg">
+      <span class="tag">Example — largest of 7, 3, 9, 4 (by hand)</span>
+      <p><span class="mono">keep the biggest seen so far: 7 → still 7 → now 9 → still 9. Answer: 9.</span><br>Your brain just ran a loop with a "best so far" variable — that <em>is</em> the algorithm.</p>
+    </div>
+    <p style="margin-top:14px">Slow down and notice the steps you did automatically. Do a second example if the first felt like a fluke.</p>
   </section>
 
   <!-- 7 STEP 3 -->
@@ -182,12 +209,23 @@ show total</div>
     <h2>The pattern toolbox</h2>
     <p>Most problems are a few familiar shapes combined. Learn to spot them:</p>
     <div class="grid g3" style="margin-top:6px">
-      <div class="card"><h3>➕ Accumulator</h3><p>A running total or string you add to in a loop (sum, build text).</p></div>
-      <div class="card"><h3>🔢 Counter</h3><p>Tally how many times something happens (<code>count += 1</code>).</p></div>
-      <div class="card"><h3>🚩 Boolean flag</h3><p>Track yes/no across a loop ("have I seen one yet?").</p></div>
-      <div class="card"><h3>🔎 Search + break</h3><p>Scan until you find it, then stop early.</p></div>
-      <div class="card"><h3>🏆 Best so far</h3><p>Keep the current champion (max, min, longest word).</p></div>
-      <div class="card"><h3>🧩 Decompose</h3><p>Split into small functions and solve each alone.</p></div>
+      <div class="card"><h3>➕ Accumulator</h3><p>A running total or string you add to in a loop.<span class="ex">total = 0
+for p in prices:
+    total += p</span></p></div>
+      <div class="card"><h3>🔢 Counter</h3><p>Tally how many times something happens.<span class="ex">n = 0
+for ch in text:
+    if ch == "a": n += 1</span></p></div>
+      <div class="card"><h3>🚩 Boolean flag</h3><p>Track yes/no across a loop.<span class="ex">failed = False
+for m in marks:
+    if m < 40: failed = True</span></p></div>
+      <div class="card"><h3>🔎 Search + break</h3><p>Scan until you find it, then stop early.<span class="ex">for x in items:
+    if x == target:
+        break</span></p></div>
+      <div class="card"><h3>🏆 Best so far</h3><p>Keep the current champion (max/min).<span class="ex">best = 0
+for m in marks:
+    if m > best: best = m</span></p></div>
+      <div class="card"><h3>🧩 Decompose</h3><p>Split into small functions, solve each alone.<span class="ex">avg = average(a, b, c)
+g = grade(avg)</span></p></div>
     </div>
   </section>
 
@@ -225,6 +263,10 @@ return total</div>
       <li><strong>Boundary</strong> — the edges: 0, 1, empty string, the first/last item.</li>
       <li class="x"><strong>Weird</strong> — negatives, huge values, the unexpected.</li>
     </ul>
+    <div class="eg">
+      <span class="tag">Example — testing the bill function <span class="mono">to_pay(bill)</span></span>
+      <p><span class="mono">to_pay(600) → 540 ✓ (normal) &nbsp;·&nbsp; to_pay(500) → 450 ✓ (boundary) &nbsp;·&nbsp; to_pay(0) → 0 ✓ (weird)</span></p>
+    </div>
     <p style="margin-top:12px">A failing test isn't failure — it's a free bug report. Trace it back to the <em>plan</em>, fix the logic, run again.</p>
   </section>
 
@@ -378,6 +420,10 @@ print(grade(average(82, 91, 70)))  # B</div>
       <div class="card"><h3>✂️ Shrink the input</h3><p>Make it the smallest failing case. Less noise, faster fix.</p></div>
       <div class="card"><h3>↩️ Back to the plan</h3><p>Most bugs are wrong <em>logic</em>, not wrong syntax. Re-check step 3, not the semicolons.</p></div>
     </div>
+    <div class="eg">
+      <span class="tag">Example — print-debugging a wrong total</span>
+      <p><span class="mono">Sum of 1..5 prints 10, not 15? Add <code>print(n, total)</code> in the loop — you see it stops at 4. The bug: <code>range(1, N)</code> should be <code>range(1, N+1)</code>.</span></p>
+    </div>
   </section>
 
   <!-- 12 PITFALLS -->
@@ -391,6 +437,10 @@ print(grade(average(82, 91, 70)))  # B</div>
       <li class="x"><strong>Ignoring edge cases</strong> — empty, zero, and negative inputs are where bugs hide.</li>
       <li class="ok"><strong>Do instead:</strong> plan on paper, build in small steps, test as you go.</li>
     </ul>
+    <div class="eg">
+      <span class="tag">Example — the edge case that bites</span>
+      <p>An "average of a list" function works on <code>[5, 8]</code> but <em>crashes on an empty list</em> (divide by zero). Thinking about edges <em>before</em> coding catches it.</p>
+    </div>
   </section>
 
   <!-- 13 HOW TO GET GOOD -->
