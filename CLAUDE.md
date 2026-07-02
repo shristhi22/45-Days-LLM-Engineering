@@ -83,8 +83,11 @@ Phase-X-Name/Day-NN-Topic-In-Kebab-Case/
 
 ## Running code (Windows environment)
 - **Use the real CPython for running scripts and pip:**
-  `C:\Users\PC\AppData\Local\Programs\Python\Python312\python.exe`
+  `C:\Users\Pc\AppData\Local\Programs\Python\Python314\python.exe`
   ⚠️ The bare `python` on PATH is a hermes venv **without pip** — don't use it for installs.
+- **`sentence-transformers` + CPU `torch` are installed globally** into this Python314 (Day 17+).
+  PyTorch needs the **Microsoft VC++ 2015–2022 x64 Redistributable** — without it `import torch`
+  fails with `WinError 1114` (`c10.dll` can't load `vcruntime140_1.dll`). It's now installed.
 - Verify new example scripts actually run before considering a day "done".
 - Shell is PowerShell; the Bash tool is also available.
 

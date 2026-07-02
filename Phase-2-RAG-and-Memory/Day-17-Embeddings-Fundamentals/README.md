@@ -47,6 +47,11 @@ pip install -r requirements.txt        # needs: numpy, sentence-transformers
 > First run of a `sentence-transformers` script downloads the model once (~90 MB) — give it a
 > minute. After that it loads from disk instantly.
 
+> **Windows: `import torch` fails with `WinError 1114` / `c10.dll`?**
+> PyTorch needs the **Microsoft Visual C++ 2015–2022 x64 Redistributable** (it provides
+> `vcruntime140_1.dll`). Install it once from <https://aka.ms/vs/17/release/vc_redist.x64.exe>,
+> then re-run. This is the most common first-time error on a fresh Windows Python.
+
 ## How to run
 ```bash
 python 01-what-is-an-embedding/coordinates.py    # no install needed for module 01
